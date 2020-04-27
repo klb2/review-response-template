@@ -1,21 +1,29 @@
-% !TeX spellcheck = en_US
-% !TeX program = pdflatex
 \documentclass[12pt,USenglish]{scrartcl}
+\usepackage{babel}
+\usepackage[babel]{microtype}
 
+\usepackage{csquotes}
+
+
+\newcommand{\manuscript}{TWC-2020-X}
 \usepackage[journal={IEEE Transactions on Wireless Communications},
-			manuscript={TWC-2020-X}]{reviewresponse}
+			manuscript={\manuscript}]{reviewresponse}
 
 \title{My Awesome Paper Title}
 \author{Donald Duck and Mickey Mouse}
 
-
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\let\newdate\@date
+\makeatother
 
 \renewcommand{\baselinestretch}{1.5}
 
 \begin{document}
 \printtitlepage
 % Cover Letter
-%TODO
+\input{cover_letter.tex}
 
 % Response to Editor
 %TODO
