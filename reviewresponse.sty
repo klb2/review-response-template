@@ -1,0 +1,65 @@
+\ProvidesPackage{reviewresponse}[2020/04/27 Review Response]
+
+\RequirePackage{kvoptions}
+
+\RequirePackage{tcolorbox}
+\RequirePackage{tubscolors}
+
+%%% Package Options %%%
+\DeclareStringOption{journal}
+\DeclareStringOption{manuscript}
+\ProcessKeyvalOptions*
+%%%
+
+%%% General Settings
+\setlength{\parindent}{0pt}
+%%%
+
+%%% Counters
+\newcounter{reviewer@counter}
+\setcounter{reviewer@counter}{0}
+\newcounter{reviewcomment@counter}[reviewer@counter]
+\setcounter{reviewcomment@counter}{0}
+%%%
+
+\newcommand{\reviewer}{
+	\clearpage
+	\refstepcounter{reviewer@counter}%
+	\@ifundefined{pdfbookmark}{}{%
+		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
+	}%
+	\section*{Reviewer \arabic{reviewer@counter}}
+}
+
+\newcommand*{\printtitlepage}{
+	\begin{center}
+		\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
+		
+		\vspace{1cm}
+		\textbf{\LARGE{\@title}}\\
+		\vspace{1cm}
+		\Large{Addressed Comments for Publication to}
+		
+		\Large{\reviewresponse@journal}
+		
+		\large{by}
+		
+		{\large{\@author}}
+	\end{center}
+}
+
+
+%%% Blocks %%%
+\newenvironment{generalcomment}{%
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip},fonttitle={\bfseries},coltitle={tubsBlueDark100},colback={tubsBlueLight20},colframe={tubsBlueMedium100},]
+}{\end{tcolorbox}}
+
+\newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
+	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}},fonttitle={\bfseries},colback={tubsBlueLight20},colframe={tubsBlueMedium100},]
+}{\end{tcolorbox}\medskip}
+
+\newenvironment{revresponse}[1][{Thank you for the comment.}]{%
+	\textbf{Response:} #1
+	
+	
+}{\vspace{4em}}
