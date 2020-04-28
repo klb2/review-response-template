@@ -6,9 +6,15 @@
 \RequirePackage{tubscolors}
 
 %%% Package Options %%%
+\DeclareStringOption{editor}
 \DeclareStringOption{journal}
 \DeclareStringOption{manuscript}
 \ProcessKeyvalOptions*
+%%%
+%%% Variables
+\let\editorname\reviewresponse@editor
+\let\journal\reviewresponse@journal
+\let\manuscript\reviewresponse@manuscript
 %%%
 
 %%% General Settings
@@ -21,6 +27,13 @@
 \newcounter{reviewcomment@counter}[reviewer@counter]
 \setcounter{reviewcomment@counter}{0}
 %%%
+\newcommand{\editor}{
+	\clearpage
+	\@ifundefined{pdfbookmark}{}{%
+		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
+	}%
+	\section*{Author's Response to the Editor}
+}
 
 \newcommand{\reviewer}{
 	\clearpage
@@ -28,7 +41,7 @@
 	\@ifundefined{pdfbookmark}{}{%
 		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
 	}%
-	\section*{Reviewer \arabic{reviewer@counter}}
+	\section*{Author's Response to Reviewer \arabic{reviewer@counter}}
 }
 
 \newcommand*{\printtitlepage}{

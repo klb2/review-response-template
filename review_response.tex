@@ -4,18 +4,19 @@
 
 \usepackage{csquotes}
 
-
-\newcommand{\manuscript}{TWC-2020-X}
 \usepackage[journal={IEEE Transactions on Wireless Communications},
-			manuscript={\manuscript}]{reviewresponse}
+			manuscript={TWC-2020-X},
+			editor={Dr. Doom}]{reviewresponse}
+			
+\usepackage{hyperref}
 
 \title{My Awesome Paper Title}
 \author{Donald Duck and Mickey Mouse}
 
 \makeatletter
-\let\newtitle\@title
-\let\newauthor\@author
-\let\newdate\@date
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
 \makeatother
 
 \renewcommand{\baselinestretch}{1.5}
@@ -26,7 +27,19 @@
 \input{cover_letter.tex}
 
 % Response to Editor
-%TODO
+\editor
+\begin{generalcomment}
+	The reviewer(s) have suggested some minor revisions to your manuscript. Therefore, I invite you to respond to the reviewer(s)' comments and revise your manuscript.
+\end{generalcomment}
+\begin{revresponse}[We appreciate your handling of the review process.]
+	According to the reviewers' comments, we have checked our manuscript and addressed them in the following way:
+	\begin{enumerate}
+		\item We added content.
+		\item We removed our wrong statements in Section~I.
+	\end{enumerate}
+\end{revresponse}
+
+
 
 % Reviewer 1
 \reviewer
