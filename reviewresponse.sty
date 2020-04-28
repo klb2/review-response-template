@@ -3,7 +3,7 @@
 \RequirePackage{kvoptions}
 
 \RequirePackage{tcolorbox}
-\RequirePackage{tubscolors}
+\RequirePackage{xcolor}
 
 %%% Package Options %%%
 \DeclareStringOption{editor}
@@ -11,11 +11,18 @@
 \DeclareStringOption{manuscript}
 \ProcessKeyvalOptions*
 %%%
+
 %%% Variables
 \let\editorname\reviewresponse@editor
 \let\journal\reviewresponse@journal
 \let\manuscript\reviewresponse@manuscript
+%%% Colors
+\definecolor{colordark}{RGB}{0,63,87}
+\definecolor{colormedium}{RGB}{0,112,155}
+\definecolor{colorlight}{RGB}{102,180,211}
+\colorlet{colorbackground}{colorlight!20}
 %%%
+
 
 %%% General Settings
 \setlength{\parindent}{0pt}
@@ -27,25 +34,11 @@
 \newcounter{reviewcomment@counter}[reviewer@counter]
 \setcounter{reviewcomment@counter}{0}
 %%%
-\newcommand{\editor}{
-	\clearpage
-	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
-	}%
-	\section*{Author's Response to the Editor}
-}
 
-\newcommand{\reviewer}{
-	\clearpage
-	\refstepcounter{reviewer@counter}%
-	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
-	}%
-	\section*{Author's Response to Reviewer \arabic{reviewer@counter}}
-}
-
+%%% Commands
 \newcommand*{\printtitlepage}{
 	\begin{center}
+		\vspace*{1cm}
 		\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
 		
 		\vspace{1cm}
@@ -62,14 +55,31 @@
 	\clearpage
 }
 
+\newcommand{\editor}{
+	\clearpage
+	\@ifundefined{pdfbookmark}{}{%
+		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
+	}%
+	\section*{Author's Response to the Editor}
+}
+
+\newcommand{\reviewer}{
+	\clearpage
+	\refstepcounter{reviewer@counter}%
+	\@ifundefined{pdfbookmark}{}{%
+		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
+	}%
+	\section*{Author's Response to Reviewer \arabic{reviewer@counter}}
+}
+%%%
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip},fonttitle={\bfseries},coltitle={tubsBlueDark100},colback={tubsBlueLight20},colframe={tubsBlueMedium100},]
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip},fonttitle={\bfseries},coltitle={colordark},colback={colorbackground},colframe={colormedium},]
 }{\end{tcolorbox}}
 
 \newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}},fonttitle={\bfseries},colback={tubsBlueLight20},colframe={tubsBlueMedium100},]
+	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}},fonttitle={\bfseries},colback={colorbackground},colframe={colormedium},]
 }{\end{tcolorbox}\medskip}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
