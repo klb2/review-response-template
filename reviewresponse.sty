@@ -75,11 +75,11 @@
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip},fonttitle={\bfseries},coltitle={colordark},colback={colorbackground},colframe={colormedium},]
-}{\end{tcolorbox}}
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colordark}, colback={colorbackground}, colframe={colormedium},]
+}{\end{tcolorbox}\smallskip}
 
 \newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}},fonttitle={\bfseries},colback={colorbackground},colframe={colormedium},]
+	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorbackground}, colframe={colormedium},]
 }{\end{tcolorbox}\medskip}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
@@ -87,3 +87,6 @@
 	
 	
 }{\vspace{4em}}
+
+\newenvironment{change}{\begin{tcolorbox}[colback={black!2}, colframe={black!20},]
+}{\end{tcolorbox}}
