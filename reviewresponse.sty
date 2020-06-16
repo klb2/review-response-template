@@ -2,7 +2,7 @@
 
 \RequirePackage{kvoptions}
 
-\RequirePackage{tcolorbox}
+\RequirePackage[breakable,skins]{tcolorbox}
 \RequirePackage{xcolor}
 
 %%% Package Options %%%
@@ -88,5 +88,5 @@
 	
 }{\vspace{4em}}
 
-\newenvironment{change}{\begin{tcolorbox}[colback={black!2}, colframe={black!20},]
+\newenvironment{change}{\begin{tcolorbox}[breakable,colback={black!2}, colframe={black!20},enhanced jigsaw,]
 }{\end{tcolorbox}}
