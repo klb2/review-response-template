@@ -5,6 +5,7 @@
 \RequirePackage[breakable,skins]{tcolorbox}
 \RequirePackage{xcolor}
 
+
 %%% Package Options %%%
 \DeclareStringOption{editor}
 \DeclareStringOption{journal}
@@ -16,6 +17,10 @@
 \let\editorname\reviewresponse@editor
 \let\journal\reviewresponse@journal
 \let\manuscript\reviewresponse@manuscript
+\newcommand*{\thetitle}{\@title}
+\newcommand*{\theauthor}{\@author}
+\newcommand*{\thedate}{\@date}
+
 %%% Colors
 \definecolor{colordark}{RGB}{0,63,87}
 \definecolor{colormedium}{RGB}{0,112,155}
@@ -26,6 +31,7 @@
 
 %%% General Settings
 \setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.5}
 %%%
 
 %%% Counters
@@ -36,23 +42,24 @@
 %%%
 
 %%% Commands
-\newcommand*{\printtitlepage}{
-	\begin{center}
-		\vspace*{1cm}
-		\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
-		
-		\vspace{1cm}
-		\textbf{\LARGE{\@title}}\\
-		\vspace{1cm}
-		\large{Addressed Comments for Publication to}
-		
-		\Large{\reviewresponse@journal}
-
-		\large{by}
-		
-		{\large{\@author}}
-	\end{center}
-	\clearpage
+\renewcommand*{\maketitle}{%
+	\begin{titlepage}
+		\begin{center}
+			\vspace*{1cm}
+			\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
+			
+			\vspace{1cm}
+			\textbf{\LARGE{\@title}}\\
+			\vspace{1cm}
+			\large{Addressed Comments for Publication to}
+			
+			\Large{\reviewresponse@journal}
+			
+			\large{by}
+			
+			{\large{\@author}}
+		\end{center}
+	\end{titlepage}
 }
 
 \newcommand{\editor}{
@@ -76,17 +83,17 @@
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
 	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colordark}, colback={colorbackground}, colframe={colormedium},]
-}{\end{tcolorbox}\smallskip}
+}{\end{tcolorbox}}
 
 \newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
 	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorbackground}, colframe={colormedium},]
-}{\end{tcolorbox}\medskip}
+}{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
-	\textbf{Response:} #1
-	
-	
-}{\vspace{4em}}
+	\textbf{Response:} #1\par
+}{\vspace{4em plus 0em minus 1em}}
 
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={black!2}, colframe={black!20},enhanced jigsaw,]
 }{\end{tcolorbox}}
+
+\newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}

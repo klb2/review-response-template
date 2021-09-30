@@ -1,30 +1,26 @@
 \documentclass[12pt,USenglish]{scrartcl}
 \usepackage{babel}
 \usepackage[babel]{microtype}
-
-\usepackage{csquotes}
+\usepackage[babel]{csquotes}
 
 \usepackage[journal={IEEE Transactions on Wireless Communications},
 			manuscript={TWC-2020-X},
 			editor={Dr. Doom}]{reviewresponse}
-			
+
+\usepackage[backend=biber,style=ieee,dashed=false,url=false,isbn=false]{biblatex}
+\bibliography{literature.bib}
+
 \usepackage{hyperref}
 
 \title{My Awesome Paper Title}
 \author{Donald Duck and Mickey Mouse}
 
-\makeatletter
-\let\thetitle\@title
-\let\theauthor\@author
-\let\thedate\@date
-\makeatother
-
-\renewcommand{\baselinestretch}{1.5}
-
 \begin{document}
-\printtitlepage
+\maketitle
+
 % Cover Letter
 \input{cover_letter.tex}
+
 
 % Response to Editor
 \editor
@@ -54,7 +50,8 @@
 	Your work is really good. However, you should change the title.
 \end{revcomment}
 \begin{revresponse}
-	We agree that the title is somewhat misleading. We therefore changed it in the current version of the manuscript.
+	We agree that the title is somewhat misleading.
+	We therefore changed it in the current version of the manuscript.
 \end{revresponse}
 
 \begin{revcomment}
@@ -81,5 +78,17 @@
 \end{revcomment}
 \begin{revresponse}
 	:(
+\end{revresponse}
+
+\begin{revcomment}
+	You forgot to cite a very important reference (where I am an author)!
+\end{revcomment}
+\begin{revresponse}
+	We are aware that citations on Google Scholar are very important to you.
+	Therefore, we added reference \cite{ReviewerReference}.
+	
+	Also check out our article \cite{Besser2020}.
+	
+	\printpartbibliography{ReviewerReference,Besser2020}
 \end{revresponse}
 \end{document}
