@@ -90,3 +90,21 @@ one particular comment, you can use the `\printpartbibliography` command.
 ```latex
 \printpartbibliography{bibkey1,bibkey2,...}
 ```
+
+
+
+### Customization
+You can customize the appearance of all the boxes in the `reviewresponse.sty`
+file.
+
+If you only want to change the colors of the boxes, you need to redefine the
+following colors.
+The shown values are the defaults.
+```latex
+\definecolor{colorcommentfg}{RGB}{0,63,87}  % color of the title in the comment box
+\definecolor{colorcommentbg}{HTML}{e0f0f6} % color of the background of the comment box
+\definecolor{colorcommentframe}{RGB}{0,112,155} % color of the frame of the comment box
+
+\colorlet{colorchangebg}{black!2} % color of the background of the changes box
+\colorlet{colorchangeframe}{black!20} % color of the frame of the changes box
+```

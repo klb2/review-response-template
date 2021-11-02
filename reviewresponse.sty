@@ -1,4 +1,7 @@
-\ProvidesPackage{reviewresponse}[2020/08/12 Review Response]
+\ProvidesPackage{reviewresponse}[2021/11/02 Review Response v1.1]
+% Author: Karl-Ludwig Besser
+% Email: k.besser@tu-bs.de
+
 
 \RequirePackage{kvoptions}
 
@@ -22,10 +25,18 @@
 \newcommand*{\thedate}{\@date}
 
 %%% Colors
-\definecolor{colordark}{RGB}{0,63,87}
-\definecolor{colormedium}{RGB}{0,112,155}
-\definecolor{colorlight}{RGB}{102,180,211}
-\colorlet{colorbackground}{colorlight!20}
+\definecolor{colorcommentfg}{RGB}{0,63,87}
+\definecolor{colorcommentbg}{HTML}{e0f0f6}
+\definecolor{colorcommentframe}{RGB}{0,112,155}
+%\definecolor{colordark}{RGB}{0,63,87}
+%\definecolor{colormedium}{RGB}{0,112,155}
+%\definecolor{colorlight}{RGB}{102,180,211}
+%\colorlet{colorcommentbg}{colorlight!20}
+
+
+
+\colorlet{colorchangebg}{black!2}
+\colorlet{colorchangeframe}{black!20}
 %%%
 
 
@@ -82,18 +93,18 @@
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colordark}, colback={colorbackground}, colframe={colormedium},]
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
 }{\end{tcolorbox}}
 
 \newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorbackground}, colframe={colormedium},]
+	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg}]
 }{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
 	\textbf{Response:} #1\par
 }{\vspace{4em plus 0em minus 1em}}
 
-\newenvironment{changes}{\begin{tcolorbox}[breakable,colback={black!2}, colframe={black!20},enhanced jigsaw,]
+\newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
 }{\end{tcolorbox}}
 
 \newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
