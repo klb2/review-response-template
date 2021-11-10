@@ -1,4 +1,4 @@
-\ProvidesPackage{reviewresponse}[2021/11/02 Review Response v1.1]
+\ProvidesPackage{reviewresponse}[2021/11/10 Review Response v1.2]
 % Author: Karl-Ludwig Besser
 % Email: k.besser@tu-bs.de
 
@@ -96,8 +96,8 @@
 	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
 }{\end{tcolorbox}}
 
-\newenvironment{revcomment}{\refstepcounter{reviewcomment@counter}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg}]
+\newenvironment{revcomment}[1][]{\refstepcounter{reviewcomment@counter}
+	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
 }{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%

@@ -57,6 +57,11 @@ The `revcomment` environment is meant for the individual comments made by the
 reviewers.
 They are automatically numbered.
 
+It also accepts optional arguments, which are directly passed to the underlying
+`tcolorbox` environment.
+This is useful, if you want to add some arguments in specific situations, e.g.,
+the `breakable` keyword for very long comments.
+
 
 ```latex
 \begin{revresponse}[Optional Parameter]
