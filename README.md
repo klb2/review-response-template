@@ -15,7 +15,10 @@ in your LaTeX document
 ```
 
 ## Commands
-The following commands are provided by the package.
+The following commands are provided by the package.  
+If you are using [TeXstudio](https://www.texstudio.org/), there exists an
+autocomplete file (`.cwl`) for the `reviewresponse.sty` package, which can be
+found [here](https://gist.github.com/klb2/29f6fffeac8cc79e3b3f79e980a6b9e3).
 
 ### Editor and Reviewers
 ```latex
