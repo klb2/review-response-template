@@ -6,7 +6,7 @@ journal.
 
 # Usage
 
-In order to use the `reviewresponse.sty` package in your document, simple include the following line
+In order to use the `reviewresponse.sty` package in your document, simply include the following line
 in your LaTeX document
 ```latex
 \usepackage[journal={Name of the Journal},
