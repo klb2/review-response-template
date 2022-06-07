@@ -4,6 +4,9 @@ This repository provides a simple LaTeX template for writing responses to
 reviewers, which is typically needed when submitting an article to a scientific
 journal.
 
+_This template is also available on
+[Overleaf](https://www.overleaf.com/latex/templates/review-response-template/tmbvmjstxwrd)._
+
 # Usage
 
 In order to use the `reviewresponse.sty` package in your document, simply include the following line
