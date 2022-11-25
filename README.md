@@ -1,5 +1,7 @@
 # LaTeX Template for Review Responses
 
+[![Overleaf Template](https://img.shields.io/static/v1?label=Overleaf&logo=overleaf&message=Template&color=47A141)](https://www.overleaf.com/latex/templates/review-response-template/tmbvmjstxwrd)
+
 This repository provides a simple LaTeX template for writing responses to
 reviewers, which is typically needed when submitting an article to a scientific
 journal.
