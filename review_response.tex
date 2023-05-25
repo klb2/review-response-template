@@ -1,21 +1,29 @@
-\documentclass[12pt,american]{scrartcl}
+\documentclass[12pt,english]{scrartcl}
+
+%% Language
 \usepackage{babel}
 \usepackage[babel]{microtype}
 \usepackage[babel]{csquotes}
 
+%% Fonts
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{newcent} % different font
+%\usepackage[scaled]{beramono} % different monospace font
+
+
+%% Review Response
 \usepackage[journal={IEEE Transactions on Wireless Communications},
 			manuscript={TWC-2020-X},
 			editor={Dr. Doom}]{reviewresponse}
 
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-%\usepackage{newcent}
-%\usepackage[scaled]{beramono}
 
+%% Bibliography
 \usepackage[backend=biber,style=ieee,dashed=false,url=false,isbn=false,defernumbers=true,refsection=section]{biblatex}
 \bibliography{literature.bib}
 
 \usepackage{hyperref}
+
 
 \title{My Awesome Paper Title}
 \author{Donald Duck and Mickey Mouse}
