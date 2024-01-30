@@ -1,6 +1,6 @@
-\ProvidesPackage{reviewresponse}[2023/05/24 Review Response v1.2.2]
+\ProvidesPackage{reviewresponse}[2024/01/30 Review Response v1.3]
 % Author: Karl-Ludwig Besser
-% Email: k.besser@tu-bs.de
+% Email: karl.besser@princeton.edu
 
 
 \RequirePackage{kvoptions}
@@ -48,10 +48,10 @@
 %%%
 
 %%% Counters
-\newcounter{reviewer@counter}
-\setcounter{reviewer@counter}{0}
-\newcounter{reviewcomment@counter}[reviewer@counter]
-\setcounter{reviewcomment@counter}{0}
+\newcounter{reviewer}
+\setcounter{reviewer}{0}
+\newcounter{revcomment}[reviewer]
+\setcounter{revcomment}{0}
 %%%
 
 %%% Commands
@@ -75,7 +75,7 @@
 	\end{titlepage}
 }
 
-\newcommand{\editor}{
+\newcommand*{\editor}{
 	\clearpage
 	\@ifundefined{pdfbookmark}{}{%
 		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
@@ -83,13 +83,13 @@
 	\section*{Authors' Response to the Editor}
 }
 
-\newcommand{\reviewer}{
+\newcommand*{\reviewer}{
 	\clearpage
-	\refstepcounter{reviewer@counter}%
+	\refstepcounter{reviewer}%
 	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
+		\pdfbookmark[1]{Reviewer \arabic{reviewer}}{hyperref@reviewer\arabic{reviewer}}%
 	}%
-	\section*{Authors' Response to Reviewer \arabic{reviewer@counter}}
+	\section*{Authors' Response to Reviewer~\arabic{reviewer}}
 }
 %%%
 
@@ -98,8 +98,8 @@
 	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
 }{\end{tcolorbox}}
 
-\newenvironment{revcomment}[1][]{\refstepcounter{reviewcomment@counter}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{reviewcomment@counter}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
+\newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
+	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
 }{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
@@ -110,3 +110,6 @@
 }{\end{tcolorbox}}
 
 \newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
+
+
+\providecommand*{\revcommentautorefname}{Comment}
