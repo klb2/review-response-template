@@ -113,4 +113,20 @@
 
 
 \providecommand*{\revcommentautorefname}{Comment}
+\AddToHook{package/hyperref/after}{
+\hypersetup{
+	bookmarksopen,
+	pdfcreator={LaTeX with the reviewresponse package},
+	pdfusetitle,
+}
+}
+\AddToHook{begindocument/before}{
+\IfPackageLoadedTF{hyperref}{
+\hypersetup{
+	pdfauthor={\@author},
+	pdftitle={\@title{} -- Review Response},
+	pdfkeywords={\journal{}, \manuscript{}, review response}
+}
+}{}
+}
 \AddToHook{begindocument/end}{\def\sectionautorefname{Reviewer}}
