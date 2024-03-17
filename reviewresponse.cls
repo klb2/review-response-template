@@ -1,37 +1,35 @@
-\ProvidesPackage{reviewresponse}[2024/01/30 Review Response v1.3]
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{reviewresponse}[2024/03/17 v2.0 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl.besser@princeton.edu
 
-
 \RequirePackage{kvoptions}
+
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
+\ProcessOptions\relax
+\LoadClass{scrartcl}
+
 
 \RequirePackage[breakable,skins]{tcolorbox}
 \RequirePackage{xcolor}
 
 
-%%% Package Options %%%
-\DeclareStringOption{editor}
-\DeclareStringOption{journal}
-\DeclareStringOption{manuscript}
-\ProcessKeyvalOptions*
-%%%
+\newcommand*{\journal}[1]{\renewcommand*{\@journal}{#1}}
+\newcommand*{\@journal}{}
+\newcommand*{\editorname}[1]{\renewcommand*{\@editorname}{#1}}
+\newcommand*{\@editorname}{}
+\newcommand*{\manuscript}[1]{\renewcommand*{\@manuscript}{#1}}
+\newcommand*{\@manuscript}{}
 
-%%% Variables
-\let\editorname\reviewresponse@editor
-\let\journal\reviewresponse@journal
-\let\manuscript\reviewresponse@manuscript
 \newcommand*{\thetitle}{\@title}
 \newcommand*{\theauthor}{\@author}
 \newcommand*{\thedate}{\@date}
+\newcommand*{\theeditor}{\@editorname}
 
 %%% Colors
 \definecolor{colorcommentfg}{RGB}{0,63,87}
 \definecolor{colorcommentbg}{HTML}{e0f0f6}
 \definecolor{colorcommentframe}{RGB}{0,112,155}
-%\definecolor{colordark}{RGB}{0,63,87}
-%\definecolor{colormedium}{RGB}{0,112,155}
-%\definecolor{colorlight}{RGB}{102,180,211}
-%\colorlet{colorcommentbg}{colorlight!20}
 
 \colorlet{colorchangebg}{black!2}
 \colorlet{colorchangeframe}{black!20}
@@ -59,14 +57,14 @@
 	\begin{titlepage}
 		\begin{center}
 			\vspace*{1cm}
-			\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
+			\large{Responses to Reviewers' Comments for Manuscript \@manuscript}\\
 			
 			\vspace{1cm}
 			\textbf{\LARGE{\@title}}\\
 			\vspace{1cm}
 			\large{Addressed Comments for Publication to}
 			
-			\Large{\reviewresponse@journal}
+			\Large{\@journal}
 			
 			\large{by}
 			
@@ -96,36 +94,36 @@
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
 	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
-}{\end{tcolorbox}}
+	}{\end{tcolorbox}}
 
 \newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
 	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
-}{\end{tcolorbox}}
+	}{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
 	\textbf{Response:} #1\par
 }{\vspace{4em plus 0.2em minus 1.5em}}
 
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
-}{\end{tcolorbox}}
+	}{\end{tcolorbox}}
 
 \newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
 
 
 \providecommand*{\revcommentautorefname}{Comment}
 \AddToHook{package/hyperref/after}{
-\hypersetup{
-	bookmarksopen,
-	pdfcreator={LaTeX with the reviewresponse package},
-}
+	\hypersetup{
+		bookmarksopen,
+		pdfcreator={LaTeX with the reviewresponse package},
+	}
 }
 \AddToHook{begindocument/before}{
-\IfPackageLoadedTF{hyperref}{
-\hypersetup{
-	pdfauthor={\@author},
-	pdftitle={\@title{} -- Review Response},
-	pdfkeywords={\journal{}, \manuscript{}, review response}
-}
-}{}
+	\IfPackageLoadedTF{hyperref}{
+		\hypersetup{
+			pdfauthor={\@author},
+			pdftitle={Review Response -- \@title{}},
+			pdfkeywords={\@journal{}, \@manuscript{}, review response}
+		}
+	}{}
 }
 \AddToHook{begindocument/end}{\def\sectionautorefname{Reviewer}}
