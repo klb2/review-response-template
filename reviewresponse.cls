@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2024/03/17 v2.0 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2024/06/25 v2.0.1 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl.besser@princeton.edu
 
@@ -25,6 +25,7 @@
 \newcommand*{\theauthor}{\@author}
 \newcommand*{\thedate}{\@date}
 \newcommand*{\theeditor}{\@editorname}
+\newcommand*{\themanuscript}{\@manuscript}
 
 %%% Colors
 \definecolor{colorcommentfg}{RGB}{0,63,87}
