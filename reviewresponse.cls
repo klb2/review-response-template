@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{reviewresponse}[2024/06/25 v2.0.1 class for writing rebuttal letters for reviews of submitted papers]
+%\ProvidesClass{reviewresponse}[2024/09/10 v2.0.2 Sina Ebrahimi: added number formatting for reviewer's (and editor's) comments and author's responses. ]
 % Author: Karl-Ludwig Besser
 % Email: karl.besser@princeton.edu
 
@@ -47,25 +48,28 @@
 %%%
 
 %%% Counters
-\newcounter{reviewer}
-\setcounter{reviewer}{0}
-\newcounter{revcomment}[reviewer]
-\setcounter{revcomment}{0}
+\newcounter{reviewer@counter}
+\setcounter{reviewer@counter}{0}
+\newcounter{reviewcomment@counter}[reviewer@counter]
+\setcounter{reviewcomment@counter}{0}
+\newcounter{revresponse@counter}[reviewer@counter]
+\setcounter{revresponse@counter}{0}
 %%%
+
 
 %%% Commands
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
 		\begin{center}
 			\vspace*{1cm}
-			\large{Responses to Reviewers' Comments for Manuscript \@manuscript}\\
+			\large{Responses to Reviewers' Comments for Manuscript \reviewresponse@manuscript}\\
 			
 			\vspace{1cm}
 			\textbf{\LARGE{\@title}}\\
 			\vspace{1cm}
 			\large{Addressed Comments for Publication to}
 			
-			\Large{\@journal}
+			\Large{\reviewresponse@journal}
 			
 			\large{by}
 			
@@ -74,7 +78,7 @@
 	\end{titlepage}
 }
 
-\newcommand*{\editor}{
+\newcommand{\editor}{
 	\clearpage
 	\@ifundefined{pdfbookmark}{}{%
 		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
@@ -82,49 +86,37 @@
 	\section*{Authors' Response to the Editor}
 }
 
-\newcommand*{\reviewer}{
+\newcommand{\reviewer}{
 	\clearpage
-	\refstepcounter{reviewer}%
+	\refstepcounter{reviewer@counter}%
+	\setcounter{reviewcomment@counter}{0} % Reset comment counter for each reviewer
+	\setcounter{revresponse@counter}{0} % Reset response counter for each reviewer
 	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reviewer \arabic{reviewer}}{hyperref@reviewer\arabic{reviewer}}%
+		\pdfbookmark[1]{Reviewer \arabic{reviewer@counter}}{hyperref@reviewer\arabic{reviewer@counter}}%
 	}%
-	\section*{Authors' Response to Reviewer~\arabic{reviewer}}
+	\section*{Authors' Response to Reviewer \arabic{reviewer@counter}}
 }
-%%%
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
+    \setcounter{revresponse@counter}{0}% Reset the response counter for the general comment
 	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
-	}{\end{tcolorbox}}
+}{\end{tcolorbox}}
 
-\newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
-	}{\end{tcolorbox}}
+\newenvironment{revcomment}[1][]{\refstepcounter{reviewcomment@counter}%
+	\begin{tcolorbox}[adjusted title={R\arabic{reviewer@counter}C\arabic{reviewcomment@counter} (Comment \arabic{reviewcomment@counter})}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
+}{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
-	\textbf{Response:} #1\par
-}{\vspace{4em plus 0.2em minus 1.5em}}
+    \ifnum\value{revresponse@counter}=0
+        \textbf{R\arabic{reviewer@counter}A\arabic{revresponse@counter} (Response \arabic{revresponse@counter}):} #1\par
+    \else
+        \textbf{R\arabic{reviewer@counter}A\arabic{revresponse@counter} (Response \arabic{revresponse@counter}):} #1\par
+    \fi
+    \refstepcounter{revresponse@counter}% Increment for the next response after printing
+}{\vspace{1.5em plus 0em minus 1em}}
 
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
-	}{\end{tcolorbox}}
+}{\end{tcolorbox}}
 
 \newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
-
-
-\providecommand*{\revcommentautorefname}{Comment}
-\AddToHook{package/hyperref/after}{
-	\hypersetup{
-		bookmarksopen,
-		pdfcreator={LaTeX with the reviewresponse package},
-	}
-}
-\AddToHook{begindocument/before}{
-	\IfPackageLoadedTF{hyperref}{
-		\hypersetup{
-			pdfauthor={\@author},
-			pdftitle={Review Response -- \@title{}},
-			pdfkeywords={\@journal{}, \@manuscript{}, review response}
-		}
-	}{}
-}
-\AddToHook{begindocument/end}{\def\sectionautorefname{Reviewer}}
