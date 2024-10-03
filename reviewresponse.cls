@@ -28,13 +28,16 @@
 \newcommand*{\themanuscript}{\@manuscript}
 
 %%% Colors
-\definecolor{colorconcluderesponsefg}{RGB}{0,63,87}
+\definecolor{colorcommentfg}{RGB}{0,63,87}
 \definecolor{colorcommentbg}{HTML}{e0f0f6}
 \definecolor{colorcommentframe}{RGB}{0,112,155}
 
-\colorlet{colorchangefg}{black!80}
 \colorlet{colorchangebg}{black!2}
 \colorlet{colorchangeframe}{black!20}
+
+\colorlet{colorconcluderesponsefg}{black!80}
+\colorlet{colorconcluderesponsebg}{black!2}
+\colorlet{colorconcluderesponseframe}{black!20}
 %%%
 
 
@@ -95,7 +98,7 @@
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorconcluderesponsefg}, colback={colorcommentbg}, colframe={colorcommentframe},]
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
 	}{\end{tcolorbox}}
 
 \newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
@@ -107,7 +110,7 @@
 }{\vspace{4em plus 0.2em minus 1.5em}}
 
 \newenvironment{concludingresponse}[1][]{%
-	\begin{tcolorbox}[attach title to upper, title={Concluding Response #1}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorchangefg}, colback={colorchangebg}, colframe={colorchangeframe},]
+	\begin{tcolorbox}[attach title to upper, title={Concluding Response #1}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorconcluderesponsefg}, colback={colorconcluderesponsebg}, colframe={colorconcluderesponseframe},]
 	}{\end{tcolorbox}}
 
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
