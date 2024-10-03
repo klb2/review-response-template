@@ -103,6 +103,15 @@ of the reviewers and editor.
 The optional parameter changes the text on the first line.
 By default, this text is "Thank you for the comment.".
 
+The `concludingresponse` environment is meant for the final response to the editor or reviewer.
+The optional parameter changes the text in the header of the `tcolorbox` environment.
+By default, this text is "Concluding Response"; the value of the optional parameter is added to this text.
+
+```latex
+\begin{concludingresponse}[to the Editor]
+...
+\end{concludingresponse}
+```
 
 
 ### Changes
@@ -146,4 +155,8 @@ The shown values are the defaults.
 
 \colorlet{colorchangebg}{black!2} % color of the background of the changes box
 \colorlet{colorchangeframe}{black!20} % color of the frame of the changes box
+
+\colorlet{colorconcludingresponsefg}{black!80} % color of the title in the concluding response box
+\colorlet{colorconcludingresponsebg}{black!2} % color of the background of the concluding response box
+\colorlet{colorconcludingresponseframe}{black!20} % color of the frame of the concluding response box
 ```
