@@ -160,3 +160,9 @@ The shown values are the defaults.
 \colorlet{colorconcludingresponsebg}{black!2} % color of the background of the concluding response box
 \colorlet{colorconcludingresponseframe}{black!20} % color of the frame of the concluding response box
 ```
+
+
+# Contribute
+Thank you for considering contributing to this project.
+You should be able to find all the information you need at
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
