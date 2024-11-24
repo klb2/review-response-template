@@ -23,11 +23,15 @@ Any open issue that is tagged with "bug" is open to whoever wants to fix it.
 ## Implementing New Features
 You are welcome to implement new features and improve existing ones.
 
+You can also use the
+[Discussions](https://github.com/klb2/review-response-template/discussions)
+forum on Github to share ideas and propose/discuss new features.
+
 
 ## How to Submit Your Work
 Please follow these steps to create a pull request on GitHub.
 
-1. Fork the beets repository and clone it to create a workspace.
+1. Fork the `review-response-template` repository and clone it to create a workspace.
 2. Make your changes.
 3. Add an example to the main document
    ([`review_response.tex`](review_response.tex)) that shows the usage of the
@@ -35,4 +39,4 @@ Please follow these steps to create a pull request on GitHub.
 4. Add a changelog entry to [`CHANGELOG.md`](CHANGELOG.md) near the top of the
    document. If you are fixing a bug, please also mention the corresponding
    issue number.
-5. Add documentation to the [`README.md`](README.md) file.
+5. Add documentation to the [`README.md`](README.md) file (if applicable).
