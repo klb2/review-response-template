@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   in a separate box. This also adds the corresponding colors
   `colorconcludingresponsefg`, `colorconcludingresponsebg`, and
   `colorconcludingresponseframe`.
+- Each comment now automatically sets a bookmark in the PDF (using the
+  `bookmark` option of `tcolorbox`).
 
 
 ## [2.0.1] - 2024-06-25

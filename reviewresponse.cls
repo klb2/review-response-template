@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2024/06/25 v2.0.1 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2025/01/16 v2.0.1 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
-% Email: karl.besser@princeton.edu
+% Email: karl-ludwig.besser@liu.se
 
 \RequirePackage{kvoptions}
 
@@ -98,11 +98,11 @@
 
 %%% Blocks %%%
 \newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},]
+	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},bookmark={General Comments}]
 	}{\end{tcolorbox}}
 
 \newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},#1]
+	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},#1]
 	}{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
