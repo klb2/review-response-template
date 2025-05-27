@@ -59,10 +59,28 @@
 \setcounter{revcomment}{0}
 %%%
 
-%%% Definitions
-\def\affil#1{$^{#1}$\ignorespaces}
-\def\affiliation#1#2{\vskip-.5\parskip\relax{\centering{\footnotesize
-$^{#1}$#2\relax}\vskip-\parskip}}
+%%% Affiliation Display Settings
+% Affiliation display
+% 0=no display, 1=number only, 2=full
+\newcount\@affilmode
+\@affilmode=0
+\newcommand{\setaffilhide}{\@affilmode=0}
+\newcommand{\setaffilnumber}{\@affilmode=1}
+\newcommand{\setaffilfull}{\@affilmode=2}
+\setaffilhide
+
+\def\affil#1#2{\ifcase\@affilmode
+	\relax
+\or
+	\relax{$^{#1}$\ignorespaces\relax}
+\or
+	\vskip-.5\parskip\relax{\centering{\footnotesize
+	$^{#1}$#2\relax}\vskip-\parskip}
+\else
+	% raise error
+	\@latex@error{Invalid \string\@affilmode value: \the\@affilmode}\@ehc
+\fi}
+%%%
 
 %%% Commands
 \renewcommand*{\maketitle}{%
@@ -80,9 +98,9 @@ $^{#1}$#2\relax}\vskip-\parskip}}
 			
 			\large{by}
 			
-			{\large{\@author}}
-
-			{\large{\@affiliations}}
+			\setaffilnumber{\large{\@author}}
+			
+			\setaffilfull{\large{\@affiliations}}\setaffilhide
 		\end{center}
 	\end{titlepage}
 }
