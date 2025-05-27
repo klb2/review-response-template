@@ -31,7 +31,11 @@ Place these commands before `\begin{document}`.
 
 ```latex
 \title{Title of the Manuscript}
-\author{Author One, Author Two, and Author Three}
+\author{Author One\affil{1}, Author Two\affil{1,*} and Author Three\affil{2}}
+\affiliations{
+    \affiliation{1}{Affiliation 1}
+    \affiliation{2}{Affiliation 2}
+}
 \journal{Name of the Journal}
 \manuscript{ID-of-the-Manuscript}
 \editorname{Name of the Editor}

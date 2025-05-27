@@ -20,6 +20,8 @@
 \newcommand*{\@editorname}{}
 \newcommand*{\manuscript}[1]{\renewcommand*{\@manuscript}{#1}}
 \newcommand*{\@manuscript}{}
+\newcommand*{\affiliations}[1]{\renewcommand*{\@affiliations}{#1}}
+\newcommand*{\@affiliations}{}
 
 \newcommand*{\thetitle}{\@title}
 \newcommand*{\theauthor}{\@author}
@@ -57,6 +59,11 @@
 \setcounter{revcomment}{0}
 %%%
 
+%%% Definitions
+\def\affil#1{$^{#1}$\ignorespaces}
+\def\affiliation#1#2{\vskip-.5\parskip\relax{\centering{\footnotesize
+$^{#1}$#2\relax}\vskip-\parskip}}
+
 %%% Commands
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
@@ -74,6 +81,8 @@
 			\large{by}
 			
 			{\large{\@author}}
+
+			{\large{\@affiliations}}
 		\end{center}
 	\end{titlepage}
 }
