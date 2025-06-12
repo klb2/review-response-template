@@ -23,11 +23,11 @@
 \newcommand*{\affiliations}[1]{\renewcommand*{\@affiliations}{#1}}
 \newcommand*{\@affiliations}{}
 
-\newcommand*{\thetitle}{\@title}
-\newcommand*{\theauthor}{\@author}
-\newcommand*{\thedate}{\@date}
-\newcommand*{\theeditor}{\@editorname}
-\newcommand*{\themanuscript}{\@manuscript}
+\newcommand*{\printtitle}{\@title}
+\newcommand*{\printauthor}{\@author}
+\newcommand*{\printdate}{\@date}
+\newcommand*{\printeditor}{\@editorname}
+\newcommand*{\printmanuscript}{\@manuscript}
 
 %%% Colors
 \definecolor{colorcommentfg}{RGB}{0,63,87}

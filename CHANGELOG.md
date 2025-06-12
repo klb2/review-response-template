@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Changed
+- Rename `\the...` commands to `\print...` to avoid conflict with biblatex
+
 ### Added
 - Add new `concludingresponse` environment for setting final comments/remarks
   in a separate box. This also adds the corresponding colors
