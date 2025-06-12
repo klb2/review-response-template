@@ -108,6 +108,8 @@
 	}%
 	\section*{Authors' Response to Reviewer~\arabic{reviewer}}
 }
+
+\newcommand*{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
 %%%
 
 %%% Blocks %%%
@@ -130,10 +132,9 @@
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
 	}{\end{tcolorbox}}
 
-\newcommand{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
-
-
 \providecommand*{\revcommentautorefname}{Comment}
+
+%%% Hyperref Settings
 \AddToHook{package/hyperref/after}{
 	\hypersetup{
 		bookmarksopen,
