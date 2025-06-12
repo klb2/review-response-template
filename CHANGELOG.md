@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   `colorconcludingresponseframe`.
 - Each comment now automatically sets a bookmark in the PDF (using the
   `bookmark` option of `tcolorbox`).
-- Add `\affil` to `\maketitle` to display affiliations in the cover letter, associated with `\affil` definitions that can be used in `\author` and `\affiliations` commands.
+- Add `\affil` to `\maketitle` to display affiliations in the cover letter, associated with `\affil` definitions that can be used in `\author` and `\affiliation` commands.
 
 
 ## [2.0.1] - 2024-06-25
