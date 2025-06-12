@@ -66,21 +66,28 @@
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
 		\begin{center}
+			\singlespacing
+			\large
 			\vspace*{1cm}
-			\large{Responses to Reviewers' Comments for Manuscript \@manuscript}\\
-			
-			\vspace{1cm}
-			\textbf{\LARGE{\@title}}\\
-			\vspace{1cm}
-			\large{Addressed Comments for Publication to}
-			
-			\Large{\@journal}
-			
-			\large{by}
-			
-			\setaffilnumber{\large{\@author}}
-			
-			\setaffilfull{\large{\@affiliations}}\setaffilhide
+			{Responses to Reviewers' Comments for Manuscript \@manuscript}
+
+			\vspace{5ex}
+
+			{\LARGE\textbf{\@title}}
+
+			\vspace{5ex}
+
+			{Addressed Comments for Publication to}\\[2ex]
+			{\Large\@journal}\\[2ex]
+			{by}\\[1.5ex]
+			{\@author}
+
+			\vspace{1.25ex}
+
+			{\small%
+			\begin{tabular}{@{}l@{}}
+				\@affiliation
+			\end{tabular}}
 		\end{center}
 	\end{titlepage}
 }
