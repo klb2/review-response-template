@@ -5,10 +5,12 @@
 
 \RequirePackage{kvoptions}
 
+\PassOptionsToClass{parskip=half-}{scrartcl}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessOptions\relax
 \LoadClass{scrartcl}
 
+\RequirePackage[onehalfspacing]{setspaceenhanced}
 
 \RequirePackage[breakable,skins]{tcolorbox}
 \RequirePackage{xcolor}
@@ -44,9 +46,9 @@
 
 
 %%% General Settings
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{.3em plus .2em minus .3em}
-\renewcommand{\baselinestretch}{1.5}
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{.3em plus .2em minus .3em}
+%\renewcommand{\baselinestretch}{1.5}
 
 \widowpenalty10000
 \clubpenalty10000
