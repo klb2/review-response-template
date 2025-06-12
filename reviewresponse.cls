@@ -20,6 +20,8 @@
 \newcommand*{\@editorname}{}
 \newcommand*{\manuscript}[1]{\renewcommand*{\@manuscript}{#1}}
 \newcommand*{\@manuscript}{}
+\newcommand*{\affiliations}[1]{\renewcommand*{\@affiliations}{#1}}
+\newcommand*{\@affiliations}{}
 
 \newcommand*{\thetitle}{\@title}
 \newcommand*{\theauthor}{\@author}
@@ -57,6 +59,29 @@
 \setcounter{revcomment}{0}
 %%%
 
+%%% Affiliation Display Settings
+% Affiliation display
+% 0=no display, 1=number only, 2=full
+\newcount\@affilmode
+\@affilmode=0
+\newcommand{\setaffilhide}{\@affilmode=0}
+\newcommand{\setaffilnumber}{\@affilmode=1}
+\newcommand{\setaffilfull}{\@affilmode=2}
+\setaffilhide
+
+\def\affil#1#2{\ifcase\@affilmode
+	\relax
+\or
+	\relax{$^{#1}$\ignorespaces\relax}
+\or
+	\vskip-.5\parskip\relax{\centering{\footnotesize
+	$^{#1}$#2\relax}\vskip-\parskip}
+\else
+	% raise error
+	\@latex@error{Invalid \string\@affilmode value: \the\@affilmode}\@ehc
+\fi}
+%%%
+
 %%% Commands
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
@@ -73,7 +98,9 @@
 			
 			\large{by}
 			
-			{\large{\@author}}
+			\setaffilnumber{\large{\@author}}
+			
+			\setaffilfull{\large{\@affiliations}}\setaffilhide
 		\end{center}
 	\end{titlepage}
 }
