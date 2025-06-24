@@ -18,6 +18,9 @@ the following line at the top of your LaTeX document
 \documentclass{reviewresponse}
 ```
 
+On GitHub, you can simply click on ["Use this template"](https://github.com/new?template_name=review-response-template&template_owner=klb2).
+
+
 ## Commands
 The following commands are provided by the package.  
 If you are using [TeXstudio](https://www.texstudio.org/), there exists an
