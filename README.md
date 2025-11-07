@@ -169,6 +169,16 @@ The shown values are the defaults.
 ```
 
 
+## Options
+The class has the following options, which can be set when setting the
+`\documentclass`, i.e., like `\documentclass[option=value]{reviewresponse}`.
+All unknown options will be passed on to the underlying `scrartcl` class.
+
+- `revnumtocomment`: (bool)  
+  If set to true, the reviewer number will be put in front
+  of the comment number, i.e., it will say "Comment 2.3" for the third comment
+  of the second reviewer.
+
 # Contribute
 Thank you for considering contributing to this project.
 You should be able to find all the information you need at

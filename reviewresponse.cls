@@ -1,15 +1,23 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2025/06/12 v2.1 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2025/11/07 v2.1+ class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
+%%% Default options for the documentclass
+\PassOptionsToClass{parskip=half-}{scrartcl}
+
+%%% Custom options for this class
 \RequirePackage{kvoptions}
 
-\PassOptionsToClass{parskip=half-}{scrartcl}
-\DeclareOption*{\PassOptionsToClass{\CurrentOption}{scrartcl}}
-\ProcessOptions\relax
+\DeclareBoolOption{revnumtocomment}
+
+\DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{scrartcl}}
+\ProcessKeyvalOptions*
+
 \LoadClass{scrartcl}
 
+
+%%% Required Packages
 \RequirePackage[onehalfspacing]{setspaceenhanced}
 
 \RequirePackage[breakable,skins]{tcolorbox}
@@ -58,8 +66,12 @@
 %%% Counters
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
-\newcounter{revcomment}[reviewer]
-\setcounter{revcomment}{0}
+\newcounter{revcomment}
+\ifreviewresponse@revnumtocomment%
+\counterwithin{revcomment}{reviewer}
+\else%
+\counterwithin*{revcomment}{reviewer}
+\fi
 %%%
 
 %%% Commands
@@ -118,7 +130,7 @@
 	}{\end{tcolorbox}}
 
 \newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
-	\begin{tcolorbox}[adjusted title={Comment \arabic{revcomment}}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},#1]
+	\begin{tcolorbox}[adjusted title={Comment~\therevcomment}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},#1]
 	}{\end{tcolorbox}}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
