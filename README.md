@@ -148,7 +148,7 @@ one particular comment, you can use the `\printpartbibliography` command.
 
 
 ### Customization
-You can customize the appearance of all the boxes in the `reviewresponse.sty`
+You can customize the appearance of all the boxes in the `reviewresponse.cls`
 file.
 
 If you only want to change the colors of the boxes, you need to redefine the
