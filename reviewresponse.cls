@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2026/06/22 v2.1+ class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2026/06/22 v2.1.1 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
