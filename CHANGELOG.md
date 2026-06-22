@@ -6,7 +6,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 ### Changed
+- Changed thickness of left rule of `changes` box to `\accentborderthickness`
+  (5pt default)
 - Update default colors of boxes
+- Change definition of box environments to directly use the `\newtcolorbox`
+  command
+
+### Added
+- Add new variables `\accentborderthickness` and `\borderthickness` for
+  customizable border thicknesses
 
 
 ## [2.1.1] - 2026-06-22

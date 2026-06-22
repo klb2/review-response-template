@@ -53,6 +53,11 @@
 \colorlet{colorconcludingresponseframe}{black!20}
 %%%
 
+%%% Spacing and Lengths
+\newlength{\borderthickness}
+\setlength{\borderthickness}{1pt}
+\newlength{\accentborderthickness}
+\setlength{\accentborderthickness}{5pt}
 
 %%% General Settings
 %\setlength{\parindent}{0pt}
@@ -128,24 +133,17 @@
 %%%
 
 %%% Blocks %%%
-\newenvironment{generalcomment}{%
-	\begin{tcolorbox}[attach title to upper, title={General Comments}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorcommentfg}, colback={colorcommentbg}, colframe={colorcommentframe},bookmark={General Comments}]
-	}{\end{tcolorbox}}
+\newtcolorbox{generalcomment}{attach title to upper, after title={.\enskip}, title={General Comments}, fonttitle={\bfseries\sffamily}, coltitle={colorcommentframe}, colback={colorcommentbg}, colframe={colorcommentframe},boxrule={\borderthickness},bookmark={General Comments}}
 
-\newenvironment{revcomment}[1][]{\refstepcounter{revcomment}
-	\begin{tcolorbox}[adjusted title={Comment~\therevcomment}, fonttitle={\bfseries}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},#1]
-	}{\end{tcolorbox}}
+\newtcolorbox[use counter*=revcomment]{revcomment}[1][]{adjusted title={Comment~\therevcomment}, fonttitle={\bfseries\sffamily}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentframe},colbacktitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},boxrule={\borderthickness},leftrule={\accentborderthickness},titlerule={\borderthickness},enhanced jigsaw,#1}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
 	\textbf{Response:} #1\par
 }{\vspace{4em plus 0.2em minus 1.5em}}
 
-\newenvironment{concludingresponse}[1][]{%
-	\begin{tcolorbox}[attach title to upper, breakable, title={Concluding Response #1}, after title={.\enskip}, fonttitle={\bfseries}, coltitle={colorconcludingresponsefg}, colback={colorconcludingresponsebg}, colframe={colorconcludingresponseframe},]
-	}{\end{tcolorbox}}
+\newtcolorbox{concludingresponse}[1][]{attach title to upper, after title={.\enskip}, title={Concluding Response #1}, fonttitle={\bfseries\sffamily}, coltitle={colorconcludingresponsefg}, colback={colorconcludingresponsebg}, colframe={colorconcludingresponseframe}, boxrule={\borderthickness}, breakable, enhanced jigsaw,}
 
-\newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
-	}{\end{tcolorbox}}
+\newtcolorbox{changes}{breakable,colback={colorchangebg}, colframe={colorchangeframe},boxrule={\borderthickness},leftrule={\accentborderthickness},enhanced jigsaw}
 
 
 %%% Hyperref Settings
