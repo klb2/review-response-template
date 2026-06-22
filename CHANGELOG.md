@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Fixed
+- Add missing `autorefname` for reviewer
+
 ### Added
 - Add new class option `revnumtocomment`, which allows adding the reviewer
   number in front of the comment number, i.e., if set to true, it will say

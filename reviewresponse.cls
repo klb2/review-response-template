@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2025/11/07 v2.1+ class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2026/06/22 v2.1+ class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
@@ -66,12 +66,15 @@
 %%% Counters
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
+\providecommand*{\reviewerautorefname}{Reviewer}
+
 \newcounter{revcomment}
 \ifreviewresponse@revnumtocomment%
 \counterwithin{revcomment}{reviewer}
 \else%
 \counterwithin*{revcomment}{reviewer}
 \fi
+\providecommand*{\revcommentautorefname}{Comment}
 %%%
 
 %%% Commands
@@ -144,7 +147,6 @@
 \newenvironment{changes}{\begin{tcolorbox}[breakable,colback={colorchangebg}, colframe={colorchangeframe},enhanced jigsaw,]
 	}{\end{tcolorbox}}
 
-\providecommand*{\revcommentautorefname}{Comment}
 
 %%% Hyperref Settings
 \AddToHook{package/hyperref/after}{
