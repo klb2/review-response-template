@@ -41,15 +41,15 @@
 \newcommand*{\printmanuscript}{\@manuscript}
 
 %%% Colors
-\definecolor{colorcommentfg}{RGB}{0,63,87}
-\definecolor{colorcommentbg}{HTML}{e0f0f6}
-\definecolor{colorcommentframe}{RGB}{0,112,155}
+\colorlet{colorcommentfg}{black}
+\definecolor{colorcommentframe}{HTML}{005374}
+\colorlet{colorcommentbg}{colorcommentframe!3}
 
-\colorlet{colorchangebg}{black!2}
-\colorlet{colorchangeframe}{black!20}
+\definecolor{colorchangeframe}{HTML}{006622}
+\colorlet{colorchangebg}{colorchangeframe!3}
 
-\colorlet{colorconcludingresponsefg}{black!80}
-\colorlet{colorconcludingresponsebg}{black!2}
+\colorlet{colorconcludingresponsefg}{black}
+\colorlet{colorconcludingresponsebg}{black!1}
 \colorlet{colorconcludingresponseframe}{black!20}
 %%%
 
