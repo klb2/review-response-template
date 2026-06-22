@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update default colors of boxes
 - Change definition of box environments to directly use the `\newtcolorbox`
   command
+- Use sans-serif font for the "Response:" label
 
 ### Added
 - Add new variables `\accentborderthickness` and `\borderthickness` for

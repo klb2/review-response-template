@@ -43,10 +43,10 @@
 %%% Colors
 \colorlet{colorcommentfg}{black}
 \definecolor{colorcommentframe}{HTML}{005374}
-\colorlet{colorcommentbg}{colorcommentframe!3}
+\colorlet{colorcommentbg}{colorcommentframe!2}
 
 \definecolor{colorchangeframe}{HTML}{006622}
-\colorlet{colorchangebg}{colorchangeframe!3}
+\colorlet{colorchangebg}{colorchangeframe!2}
 
 \colorlet{colorconcludingresponsefg}{black}
 \colorlet{colorconcludingresponsebg}{black!1}
@@ -133,17 +133,63 @@
 %%%
 
 %%% Blocks %%%
-\newtcolorbox{generalcomment}{attach title to upper, after title={.\enskip}, title={General Comments}, fonttitle={\bfseries\sffamily}, coltitle={colorcommentframe}, colback={colorcommentbg}, colframe={colorcommentframe},boxrule={\borderthickness},bookmark={General Comments}}
+\newtcolorbox{generalcomment}{%
+	attach title to upper,%
+	after title={.\enskip},%
+	title={General Comments},%
+	fonttitle={\bfseries\sffamily},%
+	coltitle={colorcommentframe},%
+	coltext={colorcommentfg},%
+	colback={colorcommentbg},%
+	colframe={colorcommentframe},%
+	boxrule={\borderthickness},%
+	bookmark={General Comments},%
+}
 
-\newtcolorbox[use counter*=revcomment]{revcomment}[1][]{adjusted title={Comment~\therevcomment}, fonttitle={\bfseries\sffamily}, colback={colorcommentbg}, colframe={colorcommentframe},coltitle={colorcommentframe},colbacktitle={colorcommentbg},bookmark={Comment \arabic{revcomment}},boxrule={\borderthickness},leftrule={\accentborderthickness},titlerule={\borderthickness},enhanced jigsaw,#1}
+\newtcolorbox[use counter*=revcomment]{revcomment}[1][]{%
+	adjusted title={Comment~\therevcomment},%
+	fonttitle={\bfseries\sffamily},%
+	coltitle={colorcommentframe},%
+	coltext={colorcommentfg},
+	colback={colorcommentbg},%
+	colframe={colorcommentframe},%
+	colbacktitle={colorcommentbg},
+	bookmark={Comment \arabic{revcomment}},%
+	boxrule={\borderthickness},%
+	leftrule={\accentborderthickness},%
+	titlerule={\borderthickness},%
+%	titlerule style={colorcommentbg},%
+	enhanced jigsaw,%
+	#1%
+}
 
 \newenvironment{revresponse}[1][{Thank you for the comment.}]{%
-	\textbf{Response:} #1\par
-}{\vspace{4em plus 0.2em minus 1.5em}}
+	\par
+	\textsf{\textbf{Response:}} #1\par
+}{\vspace{4em plus 0.2em minus 2em}}
 
-\newtcolorbox{concludingresponse}[1][]{attach title to upper, after title={.\enskip}, title={Concluding Response #1}, fonttitle={\bfseries\sffamily}, coltitle={colorconcludingresponsefg}, colback={colorconcludingresponsebg}, colframe={colorconcludingresponseframe}, boxrule={\borderthickness}, breakable, enhanced jigsaw,}
+\newtcolorbox{concludingresponse}[1][]{%
+	attach title to upper,%
+	after title={.\enskip},%
+	title={Concluding Response #1},%
+	fonttitle={\bfseries\sffamily},%
+	coltitle={colorconcludingresponsefg},%
+	coltext={colorconcludingresponsefg},%
+	colback={colorconcludingresponsebg},%
+	colframe={colorconcludingresponseframe},%
+	boxrule={\borderthickness},%
+	breakable,%
+	enhanced jigsaw,%
+}
 
-\newtcolorbox{changes}{breakable,colback={colorchangebg}, colframe={colorchangeframe},boxrule={\borderthickness},leftrule={\accentborderthickness},enhanced jigsaw}
+\newtcolorbox{changes}{%
+	colback={colorchangebg},%
+	colframe={colorchangeframe},%
+	boxrule={\borderthickness},%
+	leftrule={\accentborderthickness},%
+	breakable,%
+	enhanced jigsaw,%
+}
 
 
 %%% Hyperref Settings
