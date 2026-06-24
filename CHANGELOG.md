@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix labeling of comments
 - The `\editor` and `\reviewer` command now define a regular `\section` and the
   number is hidden through a low `secnumdepth`.
+- Convert line breaks to spaces in `\printtitle` command to avoid line breaks
+  in the cover letter
 
 ### Changed
 - Change thickness of rules to `\borderthickness`

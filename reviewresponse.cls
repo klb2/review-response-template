@@ -34,7 +34,7 @@
 \newcommand*{\@affiliation}{}
 \newcommand*{\affil}[1]{$^{#1}$}
 
-\newcommand*{\printtitle}{\@title}
+\newcommand*{\printtitle}{\begingroup\let\\\space\@title\endgroup}
 \newcommand*{\printauthor}{\begingroup\renewcommand*{\affil}[1]{\@bsphack\@esphack}\@author\endgroup}
 \newcommand*{\printdate}{\@date}
 \newcommand*{\printeditor}{\@editorname}
