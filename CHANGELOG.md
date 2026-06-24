@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 ### Fixed
 - Fix labeling of comments
+- The `\editor` and `\reviewer` command now define a regular `\section` and the
+  number is hidden through a low `secnumdepth`.
 
 ### Changed
 - Change thickness of rules to `\borderthickness`

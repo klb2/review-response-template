@@ -63,6 +63,9 @@
 %%% General Settings
 \widowpenalty10000
 \clubpenalty10000
+
+%\setcounter{secnumdepth}{\sectionnumdepth}
+\setcounter{secnumdepth}{-1}
 %%%
 
 %%% Counters
@@ -111,19 +114,13 @@
 
 \newcommand*{\editor}{
 	\clearpage
-	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reponse to the Editor}{hyperref@editor}%
-	}%
-	\section*{Authors' Response to the Editor}
+	\section[Reponse to the Editor]{Authors' Response to the Editor}
 }
 
 \newcommand*{\reviewer}{
 	\clearpage
 	\refstepcounter{reviewer}%
-	\@ifundefined{pdfbookmark}{}{%
-		\pdfbookmark[1]{Reviewer \arabic{reviewer}}{hyperref@reviewer\arabic{reviewer}}%
-	}%
-	\section*{Authors' Response to Reviewer~\arabic{reviewer}}
+	\section[Reviewer~\arabic{reviewer}]{Authors' Response to Reviewer~\arabic{reviewer}}
 }
 
 \newcommand*{\printpartbibliography}[1]{\begin{refsegment}\nocite{#1}\printbibliography[heading=none,segment=\therefsegment]\end{refsegment}}
