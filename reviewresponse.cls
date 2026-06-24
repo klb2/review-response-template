@@ -59,6 +59,13 @@
 \newlength{\accentborderthickness}
 \setlength{\accentborderthickness}{5pt}
 
+%%% Fonts
+\setkomafont{titlehead}{\normalsize\color{black!70}\sffamily}
+\setkomafont{title}{\usekomafont{disposition}\Large}
+\newkomafont{journalextra}{\normalsize\itshape}
+\newkomafont{journal}{\large}
+\setkomafont{author}{\large}
+\newkomafont{affiliation}{\small}
 
 %%% General Settings
 \widowpenalty10000
@@ -85,29 +92,36 @@
 %%% Commands
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
+		\singlespacing
+
+		\begin{flushright}
+			{\usekomafont{titlehead}Responses to Reviewers\enskip|\enskip Manuscript \@manuscript\par}
+		\end{flushright}
+
+		\vspace{20ex plus 5ex minus 5ex}
+
 		\begin{center}
-			\singlespacing
-			\large
-			\vspace*{1cm}
-			{Responses to Reviewers' Comments for Manuscript \@manuscript}
+			{\usekomafont{title}\@title\par}
 
-			\vspace{5ex}
+			\vspace{6ex plus 2ex minus 1.5ex}
 
-			{\LARGE\textbf{\@title}}
+			{\usekomafont{journalextra}Submitted to\par}
 
-			\vspace{5ex}
+			{\usekomafont{journal}\@journal\par}
 
-			{Addressed Comments for Publication to}\\[2ex]
-			{\Large\@journal}\\[2ex]
-			{by}\\[1.5ex]
-			{\@author}
+			\vspace{10ex plus 0ex minus 4ex}
 
+			{\usekomafont{author}\@author\par}
+
+			\ifx\@affiliation\empty
+			\else
 			\vspace{1.25ex}
 
-			{\small%
+			{\usekomafont{affiliation}%
 			\begin{tabular}{@{}l@{}}
 				\@affiliation
 			\end{tabular}}
+			\fi
 		\end{center}
 	\end{titlepage}
 }

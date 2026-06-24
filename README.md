@@ -148,10 +148,13 @@ one particular comment, you can use the `\printpartbibliography` command.
 
 
 ### Customization
-You can customize the appearance of all the boxes in the `reviewresponse.cls`
-file.
+You can customize the appearance of all boxes and the title page in the
+`reviewresponse.cls` file.
+However, some basic properties can also easily be customized in the main
+document.
 
-If you only want to change the colors of the boxes, you need to redefine the
+#### Colors
+If you want to change the colors of the boxes, you need to redefine the
 following colors, e.g., using `\definecolor` or `\colorlet`.
 The shown values are the defaults.
 
@@ -168,6 +171,7 @@ The shown values are the defaults.
 \colorlet{colorconcludingresponseframe}{black!20} % color of the frame of the concluding response box
 ```
 
+#### Borders
 If you want to change the thickness of the borders, you can set
 `\borderthickness` and `\accentborderthickness` to custom values.
 The following values are the defaults.
@@ -176,6 +180,26 @@ The following values are the defaults.
 \setlength{\borderthickness}{0.75pt}  % border around all boxes
 \setlength{\accentborderthickness}{5pt}  % accent border on the left side of the revcomment and changes boxes
 ```
+
+
+#### Fonts
+Changing the document fonts can be done in any normal LaTeX way, e.g., through
+loading specific font packages or using `\setmainfont` from the
+[`fontspec`](https://ctan.org/pkg/fontspec) package when using LuaLaTeX.
+
+For the title page, the template uses (custom) KOMA fonts, which can be
+changed/updated using `\setkomafont` or `\addtokomafont`.  
+The following are the default values for the komafonts used on the title page.
+
+```latex
+\setkomafont{titlehead}{\normalsize\color{black!70}\sffamily}
+\setkomafont{title}{\usekomafont{disposition}\Large}
+\newkomafont{journalextra}{\normalsize\itshape}
+\newkomafont{journal}{\large}
+\setkomafont{author}{\large}
+\newkomafont{affiliation}{\small}
+```
+
 
 
 ## Options

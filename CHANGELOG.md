@@ -18,11 +18,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Change definition of box environments to directly use the `\newtcolorbox`
   command
 - Use sans-serif font for the "Response:" label
+- Completely redesigned title page
 
 ### Added
 - Add new variables `\accentborderthickness` and `\borderthickness` for
   customizable border thicknesses
 - Comments get an automatic label `comment:<reviewer_num>.<comment_num>`
+- The title page now uses `komafont`, which includes the newly defined
+  `journalextra`, `journal`, and `affiliation` fonts
 
 
 ## [2.1.1] - 2026-06-22
