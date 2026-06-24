@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   command
 - Use sans-serif font for the "Response:" label
 - Completely redesigned title page
+- Change license to the LaTeX Project Public License Version 1.3c
 
 ### Added
 - Add new variables `\accentborderthickness` and `\borderthickness` for
