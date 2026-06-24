@@ -59,11 +59,8 @@
 \newlength{\accentborderthickness}
 \setlength{\accentborderthickness}{5pt}
 
-%%% General Settings
-%\setlength{\parindent}{0pt}
-%\setlength{\parskip}{.3em plus .2em minus .3em}
-%\renewcommand{\baselinestretch}{1.5}
 
+%%% General Settings
 \widowpenalty10000
 \clubpenalty10000
 %%%
