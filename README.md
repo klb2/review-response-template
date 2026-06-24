@@ -168,6 +168,15 @@ The shown values are the defaults.
 \colorlet{colorconcludingresponseframe}{black!20} % color of the frame of the concluding response box
 ```
 
+If you want to change the thickness of the borders, you can set
+`\borderthickness` and `\accentborderthickness` to custom values.
+The following values are the defaults.
+
+```latex
+\setlength{\borderthickness}{0.75pt}  % border around all boxes
+\setlength{\accentborderthickness}{5pt}  % accent border on the left side of the revcomment and changes boxes
+```
+
 
 ## Options
 The class has the following options, which can be set when setting the

@@ -55,7 +55,7 @@
 
 %%% Spacing and Lengths
 \newlength{\borderthickness}
-\setlength{\borderthickness}{1pt}
+\setlength{\borderthickness}{0.75pt}
 \newlength{\accentborderthickness}
 \setlength{\accentborderthickness}{5pt}
 

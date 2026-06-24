@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fix labeling of comments
 
 ### Changed
+- Change thickness of rules to `\borderthickness`
 - Change thickness of left rule of `changes` and `revcomment` boxes to
   `\accentborderthickness` (5pt default)
 - Update default colors of boxes
