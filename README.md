@@ -152,19 +152,19 @@ You can customize the appearance of all the boxes in the `reviewresponse.cls`
 file.
 
 If you only want to change the colors of the boxes, you need to redefine the
-following colors.
+following colors, e.g., using `\definecolor` or `\colorlet`.
 The shown values are the defaults.
 
 ```latex
-\definecolor{colorcommentfg}{RGB}{0,63,87}  % color of the title in the comment box
-\definecolor{colorcommentbg}{HTML}{e0f0f6} % color of the background of the comment box
-\definecolor{colorcommentframe}{RGB}{0,112,155} % color of the frame of the comment box
+\colorlet{colorcommentfg}{black}  % color of the text in the comment box
+\definecolor{colorcommentframe}{HTML}{005374} % color of the frame and title of the comment box
+\colorlet{colorcommentbg}{colorcommentframe!2} % color of the background of the comment box
 
-\colorlet{colorchangebg}{black!2} % color of the background of the changes box
-\colorlet{colorchangeframe}{black!20} % color of the frame of the changes box
+\definecolor{colorchangeframe}{HTML}{006622} % color of the frame of the changes box
+\colorlet{colorchangebg}{colorchangeframe!2} % color of the background of the changes box
 
-\colorlet{colorconcludingresponsefg}{black!80} % color of the title in the concluding response box
-\colorlet{colorconcludingresponsebg}{black!2} % color of the background of the concluding response box
+\colorlet{colorconcludingresponsefg}{black} % color of the title and text in the concluding response box
+\colorlet{colorconcludingresponsebg}{black!1} % color of the background of the concluding response box
 \colorlet{colorconcludingresponseframe}{black!20} % color of the frame of the concluding response box
 ```
 
