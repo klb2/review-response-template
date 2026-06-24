@@ -211,6 +211,7 @@
 \AddToHook{begindocument/before}{
 	\IfPackageLoadedTF{hyperref}{
 		\begingroup
+		\pdfstringdefDisableCommands{\let\\\space}
 		\renewcommand*{\affil}[1]{\@bsphack\@esphack}
 		\hypersetup{
 			pdfauthor={\@author},
