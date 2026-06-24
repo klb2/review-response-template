@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2026/06/22 v2.1.1 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2026/06/24 v3.0.0 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
@@ -154,12 +154,13 @@
 	colback={colorcommentbg},%
 	colframe={colorcommentframe},%
 	colbacktitle={colorcommentbg},
-	bookmark={Comment \arabic{revcomment}},%
+	bookmark={Comment \therevcomment},%
 	boxrule={\borderthickness},%
 	leftrule={\accentborderthickness},%
 	titlerule={\borderthickness},%
 %	titlerule style={colorcommentbg},%
 	enhanced jigsaw,%
+	label={comment:\arabic{reviewer}.\arabic{revcomment}},
 	#1%
 }
 

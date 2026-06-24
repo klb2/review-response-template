@@ -110,7 +110,7 @@
 	We have carefully addressed all the issues item by item as follows.
 \end{revresponse}
 
-\begin{revcomment}\label{comment:work-not-good}
+\begin{revcomment}[label={comment:work-not-good}]
 	The work is not really good.
 \end{revcomment}
 \begin{revresponse}
@@ -127,8 +127,21 @@
 	Also check out our article \cite{Besser2020}.
 
 	\printpartbibliography{ReviewerReference,Besser2020}
+\end{revresponse}
 
-	And btw, your \autoref{comment:work-not-good} was mean! (We can use the \verb|\autoref| command.)
+\begin{revcomment}
+	The template you are using for responding to my comments is excellent.
+\end{revcomment}
+\begin{revresponse}
+	We agree.
+
+	One cool feature is that comments are automatically labeled with the following pattern: \verb|comment:<rev_num>.<comment_num>|, which can then be used in a \verb|\ref|~command.
+	So this comment has number~\ref{comment:2.3}.
+	(Note that this also automatically changes if the \texttt{revnumtocomment} class option is enabled.)
+
+	To automatically add the label in front of the number, we can use \verb|\autoref|: \autoref{comment:2.3}.
+
+	It is also possible to set an additional custom label by passing the \texttt{label} option to the comment environment, e.g., \autoref{comment:work-not-good} was mean.
 \end{revresponse}
 
 

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Fixed
+- Fix labeling of comments
+
 ### Changed
 - Changed thickness of left rule of `changes` box to `\accentborderthickness`
   (5pt default)
@@ -16,6 +19,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Add new variables `\accentborderthickness` and `\borderthickness` for
   customizable border thicknesses
+- Comments get an automatic label `comment:<reviewer_num>.<comment_num>`
 
 
 ## [2.1.1] - 2026-06-22
