@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+### Fixed
+- The reviewer number 0 is printed as "E" (for editor) instead of "0". This
+  fixes the labeling when `revnumtocomment` is active as individual comments
+  made by the editor will now be labeled "Comment E.1".
 
 ## [3.0.0] - 2026-06-24
 ### Fixed

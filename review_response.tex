@@ -1,4 +1,4 @@
-\documentclass[12pt,english,DIV=13]{reviewresponse}
+\documentclass[12pt,english,DIV=13,revnumtocomment]{reviewresponse}
 
 %% Language
 \usepackage{babel}
@@ -47,6 +47,11 @@
 		\item We removed our wrong statements in Section~I.
 	\end{enumerate}
 \end{revresponse}
+
+\begin{revcomment}
+	The editor might also have some individual comments that need to be numbered.
+\end{revcomment}
+
 \begin{concludingresponse}[to the Editor]
 	Thank you for your valuable comments on our manuscript.
 	We have done our best to incorporate changes to reflect the suggestions, which allowed us to improve the quality of our work.
@@ -137,7 +142,8 @@
 
 	One cool feature is that comments are automatically labeled with the following pattern: \verb|comment:<rev_num>.<comment_num>|, which can then be used in a \verb|\ref|~command.
 	So this comment has number~\ref{comment:2.3}.
-	(Note that this also automatically changes if the \texttt{revnumtocomment} class option is enabled.)
+	(Note that the printed number automatically changes if the \texttt{revnumtocomment} class option is enabled.)
+	When referring to specific comments made by the editor, the reviewer number \verb|<rev_num>| is zero, e.g., \autoref{comment:0.1}.
 
 	To automatically add the label in front of the number, we can use \verb|\autoref|: \autoref{comment:2.3}.
 

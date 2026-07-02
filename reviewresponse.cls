@@ -18,7 +18,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2026/06/24 v3.0.0 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2026/07/01 v3.0.1 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
@@ -97,6 +97,13 @@
 %%% Counters
 \newcounter{reviewer}
 \setcounter{reviewer}{0}
+\renewcommand{\thereviewer}{%
+	\ifnum\value{reviewer}=0
+	E%
+	\else
+	\arabic{reviewer}%
+	\fi
+}
 \providecommand*{\reviewerautorefname}{Reviewer}
 
 \newcounter{revcomment}
