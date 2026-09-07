@@ -18,7 +18,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{reviewresponse}[2026/07/01 v3.0.1 class for writing rebuttal letters for reviews of submitted papers]
+\ProvidesClass{reviewresponse}[2026/09/07 v3.1.0 class for writing rebuttal letters for reviews of submitted papers]
 % Author: Karl-Ludwig Besser
 % Email: karl-ludwig.besser@liu.se
 
@@ -29,6 +29,7 @@
 \RequirePackage{kvoptions}
 
 \DeclareBoolOption{revnumtocomment}
+\DeclareBoolOption{revnumtoheader}
 
 \DeclareDefaultOption{\PassOptionsToClass{\CurrentOption}{scrartcl}}
 \ProcessKeyvalOptions*
@@ -42,6 +43,22 @@
 \RequirePackage[breakable,skins]{tcolorbox}
 \RequirePackage{xcolor}
 
+
+\ifreviewresponse@revnumtoheader%
+	\RequirePackage{scrlayer-scrpage}
+	\pagestyle{scrheadings}
+	\newcommand*{\headerentry}{%
+		\ifnum\value{reviewer}<0\relax
+		\else
+		\ifnum\value{reviewer}=0
+		Response to Editor%
+		\else
+		Response to Reviewer~\thereviewer%
+		\fi
+		\fi
+	}
+	\rohead{\headerentry}
+\fi
 
 \newcommand*{\journal}[1]{\renewcommand*{\@journal}{#1}}
 \newcommand*{\@journal}{}
@@ -96,7 +113,7 @@
 
 %%% Counters
 \newcounter{reviewer}
-\setcounter{reviewer}{0}
+\setcounter{reviewer}{-1}
 \renewcommand{\thereviewer}{%
 	\ifnum\value{reviewer}=0
 	E%
@@ -118,6 +135,7 @@
 %%% Commands
 \renewcommand*{\maketitle}{%
 	\begin{titlepage}
+		\thispagestyle{empty}
 		\singlespacing
 
 		\begin{flushright}
@@ -154,6 +172,7 @@
 
 \newcommand*{\editor}{
 	\clearpage
+	\setcounter{reviewer}{0}
 	\section[Reponse to the Editor]{Authors' Response to the Editor}
 }
 

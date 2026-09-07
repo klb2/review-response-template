@@ -211,6 +211,10 @@ All unknown options will be passed on to the underlying `scrartcl` class.
   If set to true, the reviewer number will be put in front
   of the comment number, i.e., it will say "Comment 2.3" for the third comment
   of the second reviewer.
+- `revnumtoheader`: (bool)  
+  If set to true, a header line with the reviewer will be added to each page.
+  This can help to keep track of the current section/reviewer when scrolling
+  through long review response documents.
 
 # Contribute
 Thank you for considering contributing to this project.

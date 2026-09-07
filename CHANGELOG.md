@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   fixes the labeling when `revnumtocomment` is active as individual comments
   made by the editor will now be labeled "Comment E.1".
 
+### Added
+- Add new class option `revnumtoheader`, which adds a header line with the
+  current reviewer number.
+
+
 ## [3.0.0] - 2026-06-24
 ### Fixed
 - Fix labeling of comments
